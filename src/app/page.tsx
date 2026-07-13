@@ -1,8 +1,8 @@
-'use client';
-import { useState } from 'react';
-import TodoForm from '@/components/TodoForm/TodoForm';
-import TodoList from '@/components/TodoList/TodoList';
-import styles from './page.module.css';
+"use client";
+import { useState } from "react";
+import TodoForm from "@/components/TodoForm/TodoForm";
+import TodoList from "@/components/TodoList/TodoList";
+import styles from "./page.module.css";
 
 export type Todo = {
   id: number;
@@ -11,6 +11,7 @@ export type Todo = {
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
+
   const addTodo = (text: string) => {
     const newTodo: Todo = {
       id: Date.now(),
@@ -18,6 +19,11 @@ export default function Home() {
     };
     setTodos([...todos, newTodo]);
   };
+
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <main className={styles.container}>
       <header className={styles.header}>
@@ -25,7 +31,7 @@ export default function Home() {
         <p className={styles.subtitle}>シンプルなTodoアプリ</p>
       </header>
       <TodoForm onAddTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onDeleteTodo={deleteTodo} />
     </main>
   );
 }
