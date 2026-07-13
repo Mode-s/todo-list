@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 export type Todo = {
   id: number;
   text: string;
+  completed: boolean;
 };
 
 export default function Home() {
@@ -16,12 +17,17 @@ export default function Home() {
     const newTodo: Todo = {
       id: Date.now(),
       text: text,
+      completed: false,
     };
     setTodos([...todos, newTodo]);
   };
 
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleTodo = (id: number) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
   return (
@@ -31,7 +37,7 @@ export default function Home() {
         <p className={styles.subtitle}>シンプルなTodoアプリ</p>
       </header>
       <TodoForm onAddTodo={addTodo} />
-      <TodoList todos={todos} onDeleteTodo={deleteTodo} />
+      <TodoList todos={todos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo}/>
     </main>
   );
 }
