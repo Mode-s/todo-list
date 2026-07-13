@@ -10,6 +10,7 @@
 
 .buttonGroup {
   display: flex;
+  text-align: center;
   gap: 8px;
   margin-top: 12px;
 }
