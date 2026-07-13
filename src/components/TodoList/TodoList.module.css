@@ -19,13 +19,24 @@
 .item {
   display: flex;
   align-items: center;
+  gap: 24px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+.checkbox {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+}
+
 .itemText {
   flex: 1;
+}
+
+.itemTextCompleted {
+  text-decoration: line-through;
 }
 
 .deleteButton {
