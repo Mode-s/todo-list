@@ -38,6 +38,26 @@
   text-decoration: line-through;
 }
 
+.editInput {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.saveButton {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.editButton {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .deleteButton {
   padding: 8px 12px;
   border: 1px solid #dc2626;

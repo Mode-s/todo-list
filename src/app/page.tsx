@@ -35,6 +35,10 @@ export default function Home() {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
+  const editTodo = (id: number, newText: string) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
+  };
+
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
@@ -53,8 +57,8 @@ export default function Home() {
         <p className={styles.subtitle}>シンプルなTodoアプリ</p>
       </header>
       <TodoForm onAddTodo={addTodo} />
-      <TodoFilter filter={filter} onFilterChange={setFilter} totalCount={totalCount} activeCount={activeCount} completedCount={completedCount}/>
-      <TodoList todos={filteredTodos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo} />
+      <TodoFilter filter={filter} onFilterChange={setFilter} totalCount={totalCount} activeCount={activeCount} completedCount={completedCount} />
+      <TodoList todos={filteredTodos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo} onEditTodo={editTodo} />
       <TodoSummary totalCount={totalCount} completedCount={completedCount} />
     </main>
   );
