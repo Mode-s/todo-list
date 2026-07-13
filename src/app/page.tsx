@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import TodoForm from "@/components/TodoForm/TodoForm";
+import TodoFilter from "@/components/TodoFilter/TodoFilter";
 import TodoList from "@/components/TodoList/TodoList";
 import styles from "./page.module.css";
 
@@ -10,8 +11,11 @@ export type Todo = {
   completed: boolean;
 };
 
+export type FilterType = "all" | "active" | "completed";
+
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [filter, setFilter] = useState<FilterType>("all");
 
   const addTodo = (text: string) => {
     const newTodo: Todo = {
@@ -30,6 +34,13 @@ export default function Home() {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+
+    return true;
+  });
+
   return (
     <main className={styles.container}>
       <header className={styles.header}>
@@ -37,7 +48,8 @@ export default function Home() {
         <p className={styles.subtitle}>シンプルなTodoアプリ</p>
       </header>
       <TodoForm onAddTodo={addTodo} />
-      <TodoList todos={todos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo}/>
+      <TodoFilter filter={filter} onFilterChange={setFilter}/>
+      <TodoList todos={filteredTodos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo} />
     </main>
   );
 }
