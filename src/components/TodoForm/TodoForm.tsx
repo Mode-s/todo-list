@@ -1,6 +1,6 @@
 'use client';
 
-import { SubmitEventHandler, useState } from 'react';
+import { useState } from 'react';
 import styles from './TodoForm.module.css';
 
 type TodoFormProps = {
