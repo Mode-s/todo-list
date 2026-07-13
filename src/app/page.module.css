@@ -1,0 +1,22 @@
+.container {
+  max-width: 640px;
+  margin: 40px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.header {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #6b7280;
+}
