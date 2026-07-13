@@ -1,0 +1,27 @@
+.filterSection {
+  padding: 24px 16px;
+  border-top: 1px solid #ccc;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.filterButton {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filterButtonActive {
+  background-color: #3b82f6;
+  color: #fff;
+}
