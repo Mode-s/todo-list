@@ -3,6 +3,7 @@ import { useState } from "react";
 import TodoForm from "@/components/TodoForm/TodoForm";
 import TodoFilter from "@/components/TodoFilter/TodoFilter";
 import TodoList from "@/components/TodoList/TodoList";
+import TodoSummary from "@/components/TodoSummary/TodoSummary";
 import styles from "./page.module.css";
 
 export type Todo = {
@@ -41,6 +42,10 @@ export default function Home() {
     return true;
   });
 
+  const totalCount = todos.length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+  const activeCount = totalCount - completedCount;
+
   return (
     <main className={styles.container}>
       <header className={styles.header}>
@@ -48,8 +53,9 @@ export default function Home() {
         <p className={styles.subtitle}>シンプルなTodoアプリ</p>
       </header>
       <TodoForm onAddTodo={addTodo} />
-      <TodoFilter filter={filter} onFilterChange={setFilter}/>
+      <TodoFilter filter={filter} onFilterChange={setFilter} totalCount={totalCount} activeCount={activeCount} completedCount={completedCount}/>
       <TodoList todos={filteredTodos} onDeleteTodo={deleteTodo} onToggleTodo={toggleTodo} />
+      <TodoSummary totalCount={totalCount} completedCount={completedCount} />
     </main>
   );
 }

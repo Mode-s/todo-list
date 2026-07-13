@@ -1,0 +1,10 @@
+.summary {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid #ccc;
+}
+
+.summaryText {
+  font-size: 14px;
+  color: #6b7280;
+}
