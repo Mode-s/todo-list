@@ -1,0 +1,18 @@
+.buttonGroup {
+  display: flex;
+  text-align: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.filterButton {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filterButtonActive {
+  background-color: #3b82f6;
+  color: #fff;
+}

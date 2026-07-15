@@ -1,0 +1,56 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkbox {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+}
+
+.itemText {
+  flex: 1;
+}
+
+.itemTextCompleted {
+  text-decoration: line-through;
+}
+
+.editInput {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.saveButton {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.editButton {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.deleteButton {
+  padding: 8px 12px;
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  color: #dc2626;
+}
