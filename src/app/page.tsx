@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Todo, FilterType } from '@/types/todo';
+import type { Todo, FilterType } from '@/types/todo';
 import TodoForm from "@/components/TodoForm/TodoForm";
 import TodoFilter from "@/components/TodoFilter/TodoFilter";
 import TodoList from "@/components/TodoList/TodoList";
