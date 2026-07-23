@@ -1,4 +1,4 @@
-import type { FilterType } from "@/app/page";
+import { FilterType } from '@/types/todo';
 import styles from './TodoFilter.module.css';
 
 type TodoFilterProps = {

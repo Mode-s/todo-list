@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Todo } from '@/types/todo';
 import styles from "./TodoList.module.css";
-import type { Todo } from "@/app/page";
 
 type TodoListProps = {
   todos: Todo[];

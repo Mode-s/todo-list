@@ -1,18 +1,11 @@
 "use client";
 import { useState } from "react";
+import { Todo, FilterType } from '@/types/todo';
 import TodoForm from "@/components/TodoForm/TodoForm";
 import TodoFilter from "@/components/TodoFilter/TodoFilter";
 import TodoList from "@/components/TodoList/TodoList";
 import TodoSummary from "@/components/TodoSummary/TodoSummary";
 import styles from "./page.module.css";
-
-export type Todo = {
-  id: number;
-  text: string;
-  completed: boolean;
-};
-
-export type FilterType = "all" | "active" | "completed";
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
