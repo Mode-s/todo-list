@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './TodoList.module.css';
 import type { Todo } from '@/types/todo';
 
@@ -14,6 +14,13 @@ type TodoListProps = {
 export default function TodoList({ todos, onDeleteTodo, onToggleTodo, onEditTodo }: TodoListProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingText, setEditingText] = useState('');
+  const editInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (editingId !== null) {
+      editInputRef.current?.focus();
+    }
+  }, [editingId]);
 
   const startEditing = (todo: Todo) => {
     setEditingId(todo.id);
@@ -47,7 +54,7 @@ export default function TodoList({ todos, onDeleteTodo, onToggleTodo, onEditTodo
                   <label htmlFor={`edit-todo-${todo.id}`} className="sr-only">
                     タスクを編集
                   </label>
-                  <input id={`edit-todo-${todo.id}`} type="text" className={styles.editInput} value={editingText} onChange={(e) => setEditingText(e.target.value)} />
+                  <input ref={editInputRef} id={`edit-todo-${todo.id}`} type="text" className={styles.editInput} value={editingText} onChange={(e) => setEditingText(e.target.value)} />
                   {editingText.trim() === '' && (
                     <p className={styles.errorMessage} role="alert">
                       タスクを入力してください。
