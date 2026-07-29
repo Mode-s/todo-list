@@ -1,3 +1,8 @@
+.empty {
+  margin-top: 24px;
+  color: #666;
+}
+
 .list {
   display: flex;
   flex-direction: column;
@@ -28,6 +33,13 @@
   text-decoration: line-through;
 }
 
+.editForm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
 .editInput {
   flex: 1;
   padding: 4px 8px;
@@ -35,11 +47,27 @@
   border-radius: 4px;
 }
 
+.errorMessage {
+  color: #c00;
+  font-size: 12px;
+}
+
 .saveButton {
   padding: 8px 12px;
   border-radius: 4px;
   background-color: #3b82f6;
   color: #fff;
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .editButton {

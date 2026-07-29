@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import 'destyle.css';
+import './reset.css';
 import './globals.css';
 
 const geistSans = Geist({
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Todoアプリ',
-  description: 'シンプルなTodoアプリです。',
+  description: 'タスクの追加・編集・削除ができるシンプルなTodoアプリ。',
 };
 
 export default function RootLayout({

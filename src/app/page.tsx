@@ -7,28 +7,29 @@ import TodoList from "@/components/TodoList/TodoList";
 import TodoSummary from "@/components/TodoSummary/TodoSummary";
 import styles from "./page.module.css";
 
+
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<FilterType>("all");
 
   const addTodo = (text: string) => {
     const newTodo: Todo = {
-      id: Date.now(),
+      id: crypto.randomUUID(),
       text: text,
       completed: false,
     };
     setTodos([...todos, newTodo]);
   };
 
-  const deleteTodo = (id: number) => {
+  const deleteTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const toggleTodo = (id: number) => {
+  const toggleTodo = (id: string) => {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
-  const editTodo = (id: number, newText: string) => {
+  const editTodo = (id: string, newText: string) => {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   };
 
