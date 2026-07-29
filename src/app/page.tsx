@@ -18,19 +18,19 @@ export default function Home() {
       text: text,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
+    setTodos((prev) =>[...prev, newTodo]);
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
   const toggleTodo = (id: string) => {
-    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
+    setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
   const editTodo = (id: string, newText: string) => {
-    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
+    setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   };
 
   const filteredTodos = todos.filter((todo) => {
